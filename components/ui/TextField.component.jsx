@@ -1,21 +1,22 @@
 import React from 'react'
 
-const TextField = ({children,inpHandler,...otherProps}) => {
+const TextField = ({children,inpHandler,IconBr,IconFr,frClass,...otherProps}) => {
     return (
-        <div className="flex flex-col gap-2">
-           <div className="shadow-authItem rounded-lg">
+        <div className="flex flex-col gap-2 shadow-chatItem rounded-3x">
+           <div className="rounded-2x-l flex items-center">
+           {IconFr &&  <div className={frClass}>{iconFr}</div>}
                 <input
                     {...otherProps} 
                     required
                     onChange={inpHandler}
-                    className="p-4  rounded-lg font-main text-purple-400 outline-none focus:bg-purple-100 w-full"
+                    className="h-12 px-4 font-main w-full rounded-2x-l outline-none"
                 />
+            {IconBr &&  <div className=" text-gray-500 h-12 px-4 fill-current bg-white flex items-center"><IconBr /></div>}
            </div>
-           <div>
-               {children}
-           </div>
+          {children &&  <div>{children}</div>}
         </div>
     )
 }
 
 export default TextField
+   
